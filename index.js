@@ -1,3 +1,4 @@
+
 const canvas = document.querySelector('canvas')//To select a spesific html element.
 const c = canvas.getContext('2d')
 

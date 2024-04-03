@@ -149,3 +149,28 @@ addEventListener('keydown', ({keyCode}) => {
     }
 })
 
+//keyup -> makanb9ach daghta 3la l key
+addEventListener('keyup', ({keyCode}) => {
+    switch (keyCode){
+        case 65: 
+        console.log('left')
+        keys.left.pressed=false
+        break
+
+        case 83: 
+        console.log('down')
+        break
+
+        case 68: 
+        console.log('right')        
+        keys.right.pressed=false
+        break
+
+        case 87: 
+        console.log('up')
+        player.velocity.y -= 20
+        break
+    }
+})
+
+

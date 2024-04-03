@@ -44,4 +44,34 @@ class Player{
         }
     }
 
-    
+    //--------------------------platforms-------------------------
+class Platform {
+    constructor({x,y}){
+        this.position = {
+            x,
+            y
+        }
+        this.width= 200
+        this.height= 20
+    }
+    draw(){
+        c.fillStyle= 'blue'
+        c.fillRect(this.position.x, this.position.y, this.width, this.height)
+    }
+}
+
+
+
+const player = new Player()//  creation d player and enabling access to its properties and methods. 
+const platforms = [new Platform({x:200 , y:100 }), new Platform({x: 500 , y: 200})]
+
+const keys = {
+    right:{
+        pressed: false
+    },
+    left:{
+        pressed: false
+    }
+}
+
+

@@ -28,3 +28,20 @@ class Player{
         c.fillStyle = 'red'
         c.fillRect(this.position.x, this.position.y, this.width, this.height)
     }
+
+
+
+        //bach l gravity tb9a dima katw9e3 l player .
+        update(){        
+            this.draw()        
+            this.position.x += this.velocity.x
+            this.position.y += this.velocity.y
+            
+            if (this.position.y + this.height + this.velocity.y <= canvas.height)
+               this.velocity.y += gravity
+            else this.velocity.y= 0
+             
+        }
+    }
+
+    

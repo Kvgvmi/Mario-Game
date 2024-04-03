@@ -75,3 +75,50 @@ const keys = {
 }
 
 
+//animation to keep the palyer moving
+function animate() {
+    requestAnimationFrame(animate) // to create an infinit loop of movment . doing the same movement over and over
+    c.clearRect(0, 0, canvas.width, canvas.height ) // clears the entire canvas by removing all content within its boundaries
+    player.update()
+    // hadi bdelnaha 7it bghina bach ikuno 3endna bzaf d platforms o 3endna array
+    platforms.forEach(platform =>{
+        platform.draw()
+    })
+    
+
+    if (keys.right.pressed 
+        && player.position.x < 400) {
+        player.velocity.x= 5 //ila wzrekna kaytmcha
+    } else  if (keys.left.pressed
+        && player.position.x > 100 ) { //ila bdlna kibdl itijah 7ta howa
+        player.velocity.x=-5 }
+     else {
+        player.velocity.x = 0
+       // ila 7iydna idina kay7bss
+       //les conditions bach ila player ne9ez fo9 platform ib9a fo9ha
+       if(keys.right.pressed){ // creating the ilusion of movment
+        platforms.forEach(platform =>{
+            platform.position.x -= 5 // dekhelnaha f west sigha jdida li bedelna
+        })
+        
+        } else if (keys.left.pressed){
+            platforms.forEach(platform =>{
+                platform.position.x += 5
+            })
+        }
+
+    } 
+    //platform collision detection 
+
+    platforms.forEach(platform =>{
+     if (player.position.y + player.height <= platform.position.y 
+        && player.position.y + player.height + player.velocity.y >= platform.position.y 
+        && player.position.x + player.width >= platform.position.x
+        && player.position.x <= platform.position.x + platform.width ) {
+        player.velocity.y = 0
+        
+     }
+    })
+}
+animate()
+

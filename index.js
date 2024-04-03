@@ -74,6 +74,9 @@ const keys = {
     }
 }
 
+// win
+let scrollOffset = 0
+
 
 //animation to keep the palyer moving
 function animate() {
@@ -97,17 +100,21 @@ function animate() {
        // ila 7iydna idina kay7bss
        //les conditions bach ila player ne9ez fo9 platform ib9a fo9ha
        if(keys.right.pressed){ // creating the ilusion of movment
+       scrollOffset += 5
         platforms.forEach(platform =>{
             platform.position.x -= 5 // dekhelnaha f west sigha jdida li bedelna
         })
         
         } else if (keys.left.pressed){
+            scrollOffset -= 5
             platforms.forEach(platform =>{
                 platform.position.x += 5
             })
         }
-
     } 
+
+
+
     //platform collision detection 
 
     platforms.forEach(platform =>{
@@ -119,6 +126,9 @@ function animate() {
         
      }
     })
+    if (scrollOffset > 2000) {
+        console.log('you win');
+    }
 }
 animate()
 
